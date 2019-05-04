@@ -1,0 +1,37 @@
+public class Solution {
+    public IList<IList<int>> Permute(int[] nums) 
+    {
+        List<List<int>> resultList = new List<List<int>>();
+        MakePermutations(new int[nums.Length], 0, resultList, nums);  
+        IList<int> listInts = new List<int>();
+        listInts = resultList[0];
+        IList<IList<int>> result = new List<IList<int>>();
+        result.Add(listInts);
+        return result;
+    }
+    
+    public static void MakePermutations(int[] permutation, int position, List<List<int>> result, int[] nums)
+    {
+        if (position == permutation.Length)
+        {
+            var res = new List<int>();
+            foreach (var e in permutation)
+                res.Add(e);            
+            result.Add(res);
+            return;            
+        }
+        else
+        {
+            for (int i = 0; i < permutation.Length; i++)
+            {
+                var index = Array.IndexOf(permutation, nums[i], 0, position);
+                if (index == -1)
+                {
+                    permutation[position] = nums[i];
+                    MakePermutations(permutation, position +1, result, nums);
+                }
+                else continue;                
+            }   
+        }        
+    }
+}
