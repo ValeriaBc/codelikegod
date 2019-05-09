@@ -1,0 +1,37 @@
+public class Solution {
+    public int Compress(char[] chars) 
+    {
+        var count = chars.Length;
+        int i = 0;
+        int k = 0;
+        while(i < count)
+        {
+            var ch = chars[i];
+            var countChar = 0;
+            while (i<count && chars[i].CompareTo(ch) == 0  )
+            {
+                countChar++;
+                i++;         
+            }
+            chars[k] = ch;
+            k++;
+            k = WriteInChars(chars, countChar, k);            
+        }
+        Array.Resize(ref chars, k);
+        return chars.Length;
+    }
+    
+    public int WriteInChars(char[] chars, int countChar, int k)
+    {
+        if (countChar >1)
+            {
+                char[] number = countChar.ToString().ToCharArray();
+                foreach (var e in number)
+                { 
+                    chars[k] = e;
+                    k++;
+                }
+            }
+        return k;
+    }
+}
