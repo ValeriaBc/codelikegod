@@ -36,3 +36,5 @@ http://qaru.site/questions/9760331/aspnet-mvc-image-in-response-output-stream-no
 http://qaru.site/questions/503231/c-imagefromstream-lost-metadata-when-running-in-windows-8-10
 
 http://www.cyberforum.ru/windows-forms/thread2275319.html
+
+https://docs.microsoft.com/ru-ru/dotnet/api/system.io.filestream.read?view=netframework-4.8
